@@ -12,13 +12,13 @@ Check out `test/mango-shopper.test.js` to see how to use the supplied Factory Fu
 
 * Create a screen that shows a list of all the shops. Use the pre-populated shops in the `data.sql` file.
 
-* Create a screen that show all the mango deals for a given shop - link to this screen from the shop list screen above. Show deals in the format `qty for price`. For example `3 for R18`, `5 for R27`
+* Create a screen that shows all the mango deals for a given shop - link to this screen from the shop list screen above. Show deals in the format `qty for price`. For example `3 for R18`, `5 for R27`
 
 * Create a screen where a new shop can be added. Add a link to this screen from the Shop list screen.
 
-* Show a list of the top 5 mango deals - this should be your landing page. Use deal format. Add some mango picture or ways to show deal details visually.
+* Show a list of the top 5 mango deals - this should be your landing page. Use deal format. Add some mango pictures or ways to show deal details visually.
 
-* Allow a user to enter how much money they have to get a recommendation of where to go and buy their mangos. Show the deals, the shop name and the unit_price for each deal.
+* Allow a user to enter how much money they have to get a recommendation of where to go and buy their mangos. Show the deals, the shop name, and the `unit_price` for each deal.
 
 ## Get going
 
@@ -30,9 +30,9 @@ To get going:
 
 ## Other things
 
-<!-- * Deploy your app to heroku - share the link with us -->
+<!-- * Deploy your app to [Render](https://dashboard.render.com) - share the link with us -->
 * Ensure your app is responsive.
-* Create a color scheme with some elements of green using : https://coolors.co/
+* Create a color scheme with some elements of green using: https://coolors.co/
 * Create a paper prototype for your screens - plan your screens. Add this to your repo in GitHub.
 * Use ExpressJS and Handlebars we started the app for you in `index.js`.
 
@@ -41,6 +41,5 @@ Commit to GitHub regularly.
 
 ## Share this with us via email
 
-* Make a demo of how your app is working using [loom](https://www.loom.com/). And email it to us.
-* The GitHub repo for your project.
+* The GitHub repo for your project and deployed link from Render.
 * Your paper prototype - do this first. In the first hour of working on your app. Add photos of the prototypes to your repo. Use prototypes to clarify your thinking with the mentors.
