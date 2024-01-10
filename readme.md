@@ -41,5 +41,5 @@ Commit to GitHub regularly.
 
 ## Share this with us via email
 
-* The GitHub repo for your project and deployed link from Render.
+* The GitHub repo for your project and deployed link from [Render](https://dashboard.render.com).
 * Your paper prototype - do this first. In the first hour of working on your app. Add photos of the prototypes to your repo. Use prototypes to clarify your thinking with the mentors.
