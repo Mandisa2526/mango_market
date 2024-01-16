@@ -6,6 +6,10 @@ Use the sql script in `sql/tables.sql` to create the required tables in your loc
 
 Check out `test/mango-shopper.test.js` to see how to use the supplied Factory Function.
 
+## Factory Function & Queries
+
+For the backend functionality, the queries in mango-shopper.js should be implemented to support the frontend features. Each function in mango-shopper.js should have corresponding SQL queries for database interactions.
+
 ##  Create these screens:
 
 * Create a screen where new mango deals can be added: A deal has a price and qty. It's created at a given shop. Shops should be selected from a dropdown. Qty and price should not be blank. And a shop must be selected before a deal is added.
