@@ -45,5 +45,29 @@ Commit to GitHub regularly.
 
 ## Share this with us via email
 
-* The GitHub repo for your project and deployed link from [Render](https://dashboard.render.com).
 * Your paper prototype - do this first. In the first hour of working on your app. Add photos of the prototypes to your repo. Use prototypes to clarify your thinking with the mentors.
+* The GitHub repo for your project and deployed link from [Render](https://dashboard.render.com).
+
+## Work submission 
+
+Check your EMAIL for the links to submit your GitHub Pages URL and the URL to your GitHub repository on feedback.projectcodex.co. 
+
+## Loadshedding
+
+If you are working remotely and you are experiencing load shedding please let us know in advance. 
+
+## Planning
+
+Spend the first 30 minutes of your assessment on planning. Read through all the different scenarios & create a Kanban Board with the tasks you think you need to complete. Email a link to your Kanban board to `mentors@projectcodex.co`. Create pseudo code using code comments to help you think through what you need to do. 
+
+## Ask
+
+**Ask** for **help** - via slack in the `#awd-assessments` or email `mentors@projectcodex.co`.
+
+**Ask** at any time you would like help or clarity.
+
+## Be done by 16h00
+
+And make sure you submit your final links by latest 16h00.
+
+Enjoy! :tada:
