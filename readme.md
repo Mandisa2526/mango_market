@@ -38,6 +38,7 @@ To get going:
 * Ensure your app is responsive.
 * Create a color scheme with some elements of green using: https://coolors.co/
 * Create a paper prototype for your screens - plan your screens. Add this to your repo in GitHub.
+* Work in Thin Slices, completing one challenge at a time.
 * Use ExpressJS and Handlebars we started the app for you in `index.js`.
 
 Fork and clone this repo. 
@@ -66,8 +67,8 @@ Spend the first 30 minutes of your assessment on planning. Read through all the 
 
 **Ask** at any time you would like help or clarity.
 
-## Be done by 16h00
+## Be done by 16h30
 
-And make sure you submit your final links by latest 16h00.
+And make sure you submit your final links by latest 16h30.
 
 Enjoy! :tada:
