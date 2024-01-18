@@ -1,15 +1,15 @@
-let assert = require("assert");
-const pgp = require('pg-promise')();
-let MangoShopper = require("../mango-shopper");
-require('dotenv').config()
+import assert from 'assert';
+import pgPromise from 'pg-promise';
+const pgp = pgPromise();
+import MangoShopper from "../mango-shopper.js";
 
 // TODO configure this to work.
-const connectionString = process.env.DATABASE_URL || 'postgresql://@localhost:5432/mango_shopper';
+const connectionString = "postgres://hztxohjj:gnf9Jun28ApL7YQiAegHpiCPPw3zQOO0@heffalump.db.elephantsql.com/hztxohjj?ssl=true";;
 
 const db = pgp(connectionString);
 
 describe('The mango shopper', function () {
-
+    this.timeout(10000);
     beforeEach(async function () {
         await db.none(`delete from mango_deal;`)
         await db.none(`delete from shop;`)
@@ -47,15 +47,37 @@ describe('The mango shopper', function () {
 
         const shopId = await mangoShopper.createShop('Mango Market');
         await mangoShopper.createDeal(shopId, 5, 28);
+        const dealsForShop = await mangoShopper.dealsForShop(shopId);
 
-        assert.equal();
+        assert.equal(dealsForShop.length, 1);
+        assert.equal(dealsForShop[0].shop_name, 'Mango Market');
     })
 
     it('should return all the deals for a given shop', async function () {
 
         const mangoShopper = MangoShopper(db);
-
-        assert.deepEqual();
+        const shopId1 = await mangoShopper.createShop('Mango Market');
+        const shopId2 = await mangoShopper.createShop('Max Mangos');
+        const createDeals = [
+            mangoShopper.createDeal(shopId1, 5, 38),
+            mangoShopper.createDeal(shopId1, 6, 35),
+            mangoShopper.createDeal(shopId2, 4, 35),
+        ];
+        const expectedDeals = [
+            {
+                "price": "38.00",
+                "qty": 5,
+                "shop_name": "Mango Market",
+            },
+            {
+                "price": "35.00",
+                "qty": 6,
+                "shop_name": "Mango Market",
+            }
+        ];
+        await Promise.all(createDeals);
+        const result = await mangoShopper.dealsForShop(shopId1);
+        assert.deepStrictEqual(expectedDeals, result)
 
     });
 
