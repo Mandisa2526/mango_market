@@ -59,10 +59,12 @@ app.engine('handlebars', handlebarSetup);
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 
-let counter = 0;
-
-app.get('/', function(req, res) {
-	res.redirect('/mango-deal')
+app.get('/', async function(req, res) {
+	const qty = req.body.qty;
+	const price = req.body.price;
+	const shop = req.body.shop;
+	await mangoShop.topFiveDeals(shop, qty, price);
+	res.render('home')
 });
 
 app.get('/mango-deal', async function (req, res) {
@@ -78,6 +80,7 @@ app.post('/mango-deal', async function(req, res) {
 	res.render('shops');
 });
 
+
 app.get("/shops", async function(req, res) {
 	const shops = await mangoShop.listShops();
 	res.render('shops', {shops})
@@ -89,8 +92,14 @@ app.get("/shops/:shopId", async function(req, res) {
 	res.render('shopDeals', {deals})
 });
 
-app.post('/addShops', function(req, res) {
+app.get('/add-shop', function(req, res) {
 	res.render('shopAdd');
+});
+
+app.post('/add-shop', async function(req, res) {
+	await mangoShop.createShop(req.body.name);
+	const shops = await mangoShop.listShops();
+	res.render('shops', {shops})
 });
 
 // start  the server and start listening for HTTP request on the PORT number specified...
