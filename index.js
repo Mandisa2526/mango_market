@@ -8,6 +8,7 @@ import bodyParser from 'body-parser';
 import flash from 'express-flash';
 import session from 'express-session';
 import pgPromise from 'pg-promise';
+import MangoShopper from './mango-shopper.js';
 const app = express();
 const PORT =  process.env.PORT || 3019;
 
@@ -36,9 +37,8 @@ app.use(session({
 	saveUninitialized: true
 }));
 
-// Import modules
-import MangoShopper from './mango-shopper.js';
 
+const mangoShop = MangoShopper(db);
 //Configure the express-handlebars module:
 const handlebarSetup = exphbs.engine({
 	partialsDir: "./views/partials",
@@ -62,15 +62,35 @@ app.set('view engine', 'handlebars');
 let counter = 0;
 
 app.get('/', function(req, res) {
-	res.render('home', {
-		counter
-	});
+	res.redirect('/mango-deal')
 });
 
-app.post('/', function(req, res) {
-	res.render('shopAdd', {
-		
-	});
+app.get('/mango-deal', async function (req, res) {
+	const shops = await mangoShop.listShops();
+	res.render('mangoDeal', {shops});
+});
+
+app.post('/mango-deal', async function(req, res) {
+	const qty = req.body.qty;
+	const price = req.body.price;
+	const shop = req.body.shop;
+	await mangoShop.createDeal(shop, qty, price);
+	res.render('shops');
+});
+
+app.get("/shops", async function(req, res) {
+	const shops = await mangoShop.listShops();
+	res.render('shops', {shops})
+});
+
+app.get("/shops/:shopId", async function(req, res) {
+	const shopId = req.params.shopId
+	const deals = await mangoShop.dealsForShop(shopId);
+	res.render('shopDeals', {deals})
+});
+
+app.post('/addShops', function(req, res) {
+	res.render('shopAdd');
 });
 
 // start  the server and start listening for HTTP request on the PORT number specified...

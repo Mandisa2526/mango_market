@@ -16,9 +16,9 @@ export default function MangoShopper(db) {
 		return mango_deals;
 	}
 
-	async function topFiveDeals() {
-		
-
+	async function topFiveDeals() {     
+		let topFiveDeal = await db.manyOrNone(`SELECT *FROM mango_deal ORDER BY qty DESC, price ASC LIMIT 1 inner join shop on shop_id=shop.id where shop_id = name;`)
+		return topFiveDeal
 	}
 
 	async function createDeal(shopId, qty, price) {
@@ -27,7 +27,7 @@ export default function MangoShopper(db) {
 	}
 
 	async function recommendDeals(amount) {
-	
+	     
 	}
 
 	return {
